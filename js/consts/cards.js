@@ -1,13 +1,13 @@
 const cards = {
     standard: {
-        n: {
+        ur: {
             "n0": {
                 maxLevel: 0,
                 effects: [],
                 effectors: {}
             },
             "n1": {
-                levelCost: [10, 1.2],
+                levelCost: [10, 1],
                 pMult: 1.2,
                 effects: [
                     (level, star) => level ** ((game.cards.standard?.sr?.n1?.stars ?? 0) * .1 + 1) * star,
@@ -18,7 +18,7 @@ const cards = {
             },
             "n2": {
                 condition: () => hasCard("standard", "n", "n1"),
-                levelCost: [5, 1.15],
+                levelCost: [5, 1],
                 pMult: 1.2,
                 starDiff: 0.2,
                 effects: [
@@ -29,7 +29,7 @@ const cards = {
                 }
             },
             "n3": {
-                levelCost: [10, 1.3],
+                levelCost: [10, 1],
                 starDiff: 0.8,
                 effects: [
                     (level, star) => level * star,
@@ -40,7 +40,7 @@ const cards = {
             },
             "n4": {
                 condition: () => hasCard("standard", "n", "n3"),
-                levelCost: [25, 2],
+                levelCost: [25, 1],
                 starDiff: 1.6,
                 effects: [
                     (level, star) => level * star * 5,
@@ -51,7 +51,7 @@ const cards = {
             },
             "n5": {
                 condition: () => hasCard("standard", "n", "n4"),
-                levelCost: [100, 1.8],
+                levelCost: [100, 1],
                 starDiff: 1.4,
                 effects: [
                     (level, star) => level * star * 10,
@@ -61,7 +61,7 @@ const cards = {
                 }
             },
             "n6": {
-                levelCost: [25, 2],
+                levelCost: [25, 1],
                 pMult: 0.6,
                 starDiff: 0.5,
                 effects: [
@@ -72,7 +72,7 @@ const cards = {
                 }
             },
             "n7": {
-                levelCost: [25, 2],
+                levelCost: [25, 1],
                 pMult: 0.6,
                 starDiff: 0.5,
                 effects: [
@@ -88,11 +88,9 @@ const cards = {
                 effects: [],
                 effectors: {}
             },
-        },
-        r: {
             "n0": {
                 condition: () => flags.unlocked.shreds,
-                levelCost: [100000, 1.2],
+                levelCost: [100000, 1],
                 starDiff: 0.2,
                 effects: [
                     (level, star) => level * star * 20,
@@ -103,7 +101,7 @@ const cards = {
             },
             "n0b": {
                 condition: () => hasCard("standard", "r", "n0"),
-                levelCost: [2500, 1.25, "shreds"],
+                levelCost: [2500, 1, "shreds"],
                 starDiff: 0.3,
                 effects: [
                     (level, star) => level * star * 20,
@@ -113,7 +111,7 @@ const cards = {
                 }
             },
             "n1": {
-                levelCost: [100000, 1.3],
+                levelCost: [100000, 1],
                 pMult: 1.2,
                 effects: [
                     (level, star) => 40 + level * [0, 10, 20, 40, 80, 160][star],
@@ -124,7 +122,7 @@ const cards = {
             },
             "n1b": {
                 condition: () => flags.unlocked.shreds,
-                levelCost: [1000, 1.12, "shreds"],
+                levelCost: [1000, 1, "shreds"],
                 pMult: 1.2,
                 starDiff: 0.2,
                 effects: [
@@ -136,7 +134,7 @@ const cards = {
             },
             "n2": {
                 condition: () => hasCard("standard", "n", "n3") && flags.unlocked.zip,
-                levelCost: [200000, 2],
+                levelCost: [200000, 1],
                 starDiff: 0.9,
                 effects: [
                     (level, star) => 20 + level * star * 5,
@@ -149,7 +147,7 @@ const cards = {
             },
             "n3": {
                 condition: () => hasCard("standard", "n", "n4") && flags.unlocked.zip,
-                levelCost: [250000, 1.8],
+                levelCost: [250000, 1],
                 starDiff: 0.8,
                 effects: [
                     (level, star) => 20 + level * star * 5,
@@ -162,7 +160,7 @@ const cards = {
             },
             "n3b": {
                 condition: () => hasCard("standard", "r", "n3") && flags.unlocked.shreds,
-                levelCost: [1000, 1.4, "shreds"],
+                levelCost: [1000, 1, "shreds"],
                 pMult: 0.8,
                 maxLevel: 40,
                 starDiff: 1.2,
@@ -176,7 +174,7 @@ const cards = {
             "n3c": {
                 condition: () => hasCard("standard", "r", "n3b"),
                 pMult: 0.8,
-                levelCost: [1000, 1.3, "shreds"],
+                levelCost: [1000, 1, "shreds"],
                 maxLevel: 75,
                 starDiff: 0.9,
                 effects: [
@@ -189,7 +187,7 @@ const cards = {
             "n4": {
                 condition: () => flags.unlocked.zip,
                 pMult: 0.8,
-                levelCost: [50000, 2],
+                levelCost: [50000, 1],
                 maxLevel: 40,
                 starDiff: 1,
                 effects: [
@@ -205,7 +203,7 @@ const cards = {
             "n4b": {
                 condition: () => flags.unlocked.zip && flags.unlocked.shreds,
                 pMult: 0.6,
-                levelCost: [10, 2, "shreds"],
+                levelCost: [10, 1, "shreds"],
                 maxLevel: 100,
                 starDiff: 1.2,
                 effects: [
@@ -218,7 +216,7 @@ const cards = {
             "n5a": {
                 faction: "fire",
                 pMult: 0.5,
-                levelCost: [2, 1.5, "fire"],
+                levelCost: [2, 1, "fire"],
                 starCost: x => cardStarCost.standard.sr(x, 3) * 12,
                 effects: [
                     (level, star) => level * star,
@@ -230,7 +228,7 @@ const cards = {
             "n5b": {
                 faction: "water",
                 pMult: 0.5,
-                levelCost: [2, 1.5, "water"],
+                levelCost: [2, 1, "water"],
                 starCost: x => cardStarCost.standard.sr(x, 3) * 12,
                 effects: [
                     (level, star) => level * star,
@@ -242,7 +240,7 @@ const cards = {
             "n5c": {
                 faction: "leaf",
                 pMult: 0.5,
-                levelCost: [2, 1.5, "leaf"],
+                levelCost: [2, 1, "leaf"],
                 starCost: x => cardStarCost.standard.sr(x, 3) * 12,
                 effects: [
                     (level, star) => level * star,
@@ -254,7 +252,7 @@ const cards = {
             "n5d": {
                 faction: "sun",
                 pMult: 0.5,
-                levelCost: [2, 1.5, "sun"],
+                levelCost: [2, 1, "sun"],
                 starCost: x => cardStarCost.standard.sr(x, 3) * 12,
                 effects: [
                     (level, star) => level * star,
@@ -266,7 +264,7 @@ const cards = {
             "n5e": {
                 faction: "moon",
                 pMult: 0.5,
-                levelCost: [2, 1.5, "moon"],
+                levelCost: [2, 1, "moon"],
                 starCost: x => cardStarCost.standard.sr(x, 3) * 12,
                 effects: [
                     (level, star) => level * star,
@@ -278,7 +276,7 @@ const cards = {
             "n6a": {
                 available: () => flags.unlocked.ad,
                 pMult: 0.1,
-                levelCost: [1e9, 10, "points"],
+                levelCost: [1e9, 1, "points"],
                 starCost: x => cardStarCost.standard.n(x, 3),
                 effects: [
                     (level, star) => (level + 5) * (2 ** star) * 0.05,
@@ -291,7 +289,7 @@ const cards = {
                 available: () => flags.unlocked.ad,
                 condition: () => flags.unlocked.shreds,
                 pMult: 0.08,
-                levelCost: [1e6, 10, "shreds"],
+                levelCost: [1e6, 1, "shreds"],
                 starCost: x => cardStarCost.standard.n(x, 3),
                 effects: [
                     (level, star) => (level + 4) * (2 ** star) * 0.05,
@@ -304,7 +302,7 @@ const cards = {
                 available: () => flags.unlocked.ad,
                 condition: () => flags.unlocked.faction,
                 pMult: 0.06,
-                levelCost: [10, 10, "leaf"],
+                levelCost: [10, 1, "leaf"],
                 starCost: x => cardStarCost.standard.n(x, 3),
                 effects: [
                     (level, star) => (level + 4) * (2 ** star) * 0.05,
@@ -318,10 +316,8 @@ const cards = {
                 effects: [],
                 effectors: {}
             },
-        },
-        sr: {
             "n0": {
-                levelCost: [125, 5],
+                levelCost: [125, 1],
                 pMult: 2,
                 effects: [
                     (level, star) => 40 + level ** (0.9 + star * 0.1) * [0, 10, 20, 40, 80, 160][star],
@@ -346,7 +342,7 @@ const cards = {
             },
             "n3": {
                 condition: () => hasCard("standard", "r", "n3b"),
-                levelCost: [10000000, 5, "shreds"],
+                levelCost: [10000000, 1, "shreds"],
                 maxLevel: 75,
                 starDiff: 0.9,
                 effects: [
@@ -359,7 +355,7 @@ const cards = {
             "n4a": {
                 faction: "fire",
                 pMult: 0.5,
-                levelCost: [10, 1.2, "fire"],
+                levelCost: [10, 1, "fire"],
                 effects: [
                     (level, star) => 8 + level * [0, 2, 3, 5, 8, 12][star],
                 ],
@@ -372,7 +368,7 @@ const cards = {
             "n4b": {
                 faction: "water",
                 pMult: 0.5,
-                levelCost: [10, 1.2, "water"],
+                levelCost: [10, 1, "water"],
                 effects: [
                     (level, star) => 8 + level * [0, 2, 3, 5, 8, 12][star],
                 ],
@@ -385,7 +381,7 @@ const cards = {
             "n4c": {
                 faction: "leaf",
                 pMult: 0.5,
-                levelCost: [10, 1.2, "leaf"],
+                levelCost: [10, 1, "leaf"],
                 effects: [
                     (level, star) => 8 + level * [0, 2, 3, 5, 8, 12][star],
                 ],
@@ -398,7 +394,7 @@ const cards = {
             "n4d": {
                 faction: "sun",
                 pMult: 0.5,
-                levelCost: [10, 1.2, "sun"],
+                levelCost: [10, 1, "sun"],
                 effects: [
                     (level, star) => 8 + level * [0, 2, 3, 5, 8, 12][star],
                 ],
@@ -411,7 +407,7 @@ const cards = {
             "n4e": {
                 faction: "moon",
                 pMult: 0.5,
-                levelCost: [10, 1.2, "moon"],
+                levelCost: [10, 1, "moon"],
                 effects: [
                     (level, star) => 8 + level * [0, 2, 3, 5, 8, 12][star],
                 ],
@@ -425,7 +421,7 @@ const cards = {
                 faction: "fire",
                 condition: () => hasCard("standard", "ex", "skills2") && hasCard("standard", "ssr", "s_fire"),
                 pMult: 0.1,
-                levelCost: [2e5, 2, "fire"],
+                levelCost: [2e5, 1, "fire"],
                 starCost: x => cardStarCost.standard.sr(x, 3) * 25,
                 effects: [
                     (level, star) => 1 + level * [0, 0.01, 0.02, 0.03, 0.05, 0.08][star],
@@ -438,7 +434,7 @@ const cards = {
                 faction: "water",
                 condition: () => hasCard("standard", "ex", "skills2") && hasCard("standard", "ssr", "s_water"),
                 pMult: 0.1,
-                levelCost: [2e5, 1.5, "water"],
+                levelCost: [2e5, 1, "water"],
                 starCost: x => cardStarCost.standard.sr(x, 3) * 25,
                 effects: [
                     (level, star) => 1 + level * [0, 0.01, 0.02, 0.04, 0.07, 0.12][star],
@@ -451,7 +447,7 @@ const cards = {
                 faction: "leaf",
                 condition: () => hasCard("standard", "ex", "skills2") && hasCard("standard", "ssr", "s_leaf"),
                 pMult: 0.1,
-                levelCost: [2e5, 1.2, "leaf"],
+                levelCost: [2e5, 1, "leaf"],
                 starCost: x => cardStarCost.standard.sr(x, 3) * 25,
                 effects: [
                     (level, star) => 1 + level * [0, 0.01, 0.02, 0.04, 0.08, 0.16][star],
@@ -464,7 +460,7 @@ const cards = {
                 faction: "sun",
                 condition: () => hasCard("standard", "ex", "skills2") && hasCard("standard", "ssr", "s_sun"),
                 pMult: 0.1,
-                levelCost: [2e5, 1.3, "sun"],
+                levelCost: [2e5, 1, "sun"],
                 starCost: x => cardStarCost.standard.sr(x, 3) * 25,
                 effects: [
                     (level, star) => 1 + level * [0, 0.01, 0.02, 0.04, 0.07, 0.12][star],
@@ -477,7 +473,7 @@ const cards = {
                 faction: "moon",
                 condition: () => hasCard("standard", "ex", "skills2") && hasCard("standard", "ssr", "s_moon"),
                 pMult: 0.1,
-                levelCost: [2e5, 1.2, "moon"],
+                levelCost: [2e5, 1, "moon"],
                 starCost: x => cardStarCost.standard.sr(x, 3) * 25,
                 effects: [
                     (level, star) => 1 + level * [0, 0.01, 0.02, 0.04, 0.08, 0.16][star],
@@ -489,7 +485,7 @@ const cards = {
             "n6a": {
                 available: () => flags.unlocked.ad,
                 pMult: 0.1,
-                levelCost: [10, 10, "points"],
+                levelCost: [10, 1, "points"],
                 starCost: x => cardStarCost.standard.r(x, 1),
                 effects: [
                     (level, star) => (level ** (0.9 + star * 0.1) + 4) * (2 ** star) * 5,
@@ -501,7 +497,7 @@ const cards = {
             "n6b": {
                 available: () => flags.unlocked.ad,
                 pMult: 0.1,
-                levelCost: [100, 100, "shreds"],
+                levelCost: [100, 1, "shreds"],
                 starCost: x => cardStarCost.standard.r(x, 1),
                 effects: [
                     (level, star) => (level + 4) * (star) * 5,
@@ -517,11 +513,9 @@ const cards = {
                 effects: [],
                 effectors: {}
             },
-        },
-        ssr: {
             "n0": {
                 pMult: 2,
-                levelCost: [1e9, 10],
+                levelCost: [1e9, 1],
                 starDiff: 1,
                 effects: [
                     (level, star) => level * [0, 1.2, 1.5, 1.8, 2.2, 2.6][star],
@@ -533,7 +527,7 @@ const cards = {
             "n0b": {
                 faction: "water",
                 condition: () => flags.unlocked.shreds,
-                levelCost: [1e6, 5, "shreds"],
+                levelCost: [1e6, 1, "shreds"],
                 starDiff: 1,
                 effects: [
                     (level, star) => level * star * 2,
@@ -545,7 +539,7 @@ const cards = {
             "n0c": {
                 faction: "fire",
                 condition: () => flags.unlocked.shreds,
-                levelCost: [1e9, 10, "shreds"],
+                levelCost: [1e9, 1, "shreds"],
                 starDiff: 1,
                 effects: [
                     (level, star) => level * star * 2,
@@ -557,7 +551,7 @@ const cards = {
             "n0d": {
                 faction: "sun",
                 condition: () => flags.unlocked.skills,
-                levelCost: [10000, 2, "moon"],
+                levelCost: [10000, 1, "moon"],
                 starDiff: 1,
                 effects: [
                     (level, star) => level * star * 2,
@@ -671,7 +665,7 @@ const cards = {
                 faction: "fire",
                 pMult: 0.5,
                 condition: () => hasCard("standard", "ssr", "s_fire"),
-                levelCost: [1000, 1.4, "fire"],
+                levelCost: [1000, 1, "fire"],
                 effects: [
                     (level, star) => level * [0, 5, 7, 10, 14, 20][star],
                 ],
@@ -706,7 +700,7 @@ const cards = {
                 pMult: 0.5,
                 starDiff: 0.5,
                 condition: () => hasCard("standard", "ssr", "s_water"),
-                levelCost: [1000, 1.3, "water"],
+                levelCost: [1000, 1, "water"],
                 effects: [
                     (level, star) => level * [0, 1, 1.5, 2, 3, 4][star],
                 ],
@@ -740,7 +734,7 @@ const cards = {
                 faction: "leaf",
                 pMult: 0.5,
                 condition: () => hasCard("standard", "ssr", "s_leaf"),
-                levelCost: [1000, 1.4, "leaf"],
+                levelCost: [1000, 1, "leaf"],
                 effects: [
                     (level, star) => 1 + level * [0, 0.1, 0.15, 0.2, 0.3, 0.4][star],
                 ],
@@ -760,7 +754,7 @@ const cards = {
                 faction: "sun",
                 pMult: 0.5,
                 condition: () => hasCard("standard", "ssr", "s_sun"),
-                levelCost: [1000, 1.2, "sun"],
+                levelCost: [1000, 1, "sun"],
                 effects: [
                     (level, star) => level * [0, 1, 1.5, 2, 3, 4][star],
                 ],
@@ -781,7 +775,7 @@ const cards = {
                 faction: "moon",
                 pMult: 0.5,
                 condition: () => hasCard("standard", "ssr", "s_moon"),
-                levelCost: [1000, 1.2, "moon"],
+                levelCost: [1000, 1, "moon"],
                 effects: [
                     (level, star) => level ** ((game.cards.standard?.ssr?.s_moon_2?.stars ?? 0) * .1 + 1) ** (star * 0.1 + 0.9) * 2.5
                         * (2 ** star),
@@ -801,10 +795,8 @@ const cards = {
                     (level, star) => (star * 0.1 + 1),
                 ],
             },
-        },
-        ur: {
             "n0": {
-                levelCost: [1e12, 1.5, "shreds"],
+                levelCost: [1e12, 1, "shreds"],
                 starDiff: 1,
                 pMult: 3,
                 effects: [
@@ -835,7 +827,7 @@ const cards = {
             "n1a1": {
                 faction: "fire",
                 condition: () => game.cards.standard?.sr?.n5a?.stars >= 2,
-                levelCost: [1e3, 5, "water"],
+                levelCost: [1e3, 1, "water"],
                 pMult: 0.2,
                 effects: [
                     (level, star) => level * [0, 5, 7, 10, 14, 20][star] + 10,
@@ -847,7 +839,7 @@ const cards = {
             },
             "n1a0": {
                 faction: "fire",
-                levelCost: [1e4, 3, "leaf"],
+                levelCost: [1e4, 1, "leaf"],
                 pMult: 0.5,
                 effects: [
                     (level, star) => level * [0, 5, 7, 10, 14, 20][star] + 10,
@@ -859,7 +851,7 @@ const cards = {
             "n1b": {
                 faction: "water",
                 condition: () => game.cards.standard?.sr?.n5b?.stars >= 2,
-                levelCost: [1e6, 2, "water"],
+                levelCost: [1e6, 1, "water"],
                 pMult: 0.2,
                 effects: [
                     (level, star) => level * [0, 10, 20, 36, 55, 80][star],
@@ -870,7 +862,7 @@ const cards = {
             },
             "n1b0": {
                 faction: "water",
-                levelCost: [1e4, 3, "fire"],
+                levelCost: [1e4, 1, "fire"],
                 pMult: 0.5,
                 effects: [
                     (level, star) => level * [0, 5, 7, 10, 14, 20][star] + 10,
@@ -882,7 +874,7 @@ const cards = {
             "n1c1": {
                 faction: "leaf",
                 condition: () => game.cards.standard?.sr?.n5c?.stars >= 2,
-                levelCost: [1e6, 1.5, "leaf"],
+                levelCost: [1e6, 1, "leaf"],
                 pMult: 0.4,
                 effects: [
                     (level, star) => level * [0, 10, 20, 36, 55, 80][star],
@@ -894,7 +886,7 @@ const cards = {
             "n1c2": {
                 faction: "leaf",
                 condition: () => game.cards.standard?.sr?.n5c?.stars >= 2,
-                levelCost: [2.5e6, 2.1, "leaf"],
+                levelCost: [2.5e6, 1, "leaf"],
                 pMult: 0.4,
                 effects: [
                     (level, star) => level * [0, 10, 20, 36, 55, 80][star],
@@ -905,7 +897,7 @@ const cards = {
             },
             "n1c0": {
                 faction: "leaf",
-                levelCost: [1e4, 3, "water"],
+                levelCost: [1e4, 1, "water"],
                 pMult: 0.5,
                 effects: [
                     (level, star) => level * [0, 5, 7, 10, 14, 20][star] + 10,
@@ -927,7 +919,7 @@ const cards = {
             },
             "n1d0": {
                 faction: "sun",
-                levelCost: [1e4, 3, "moon"],
+                levelCost: [1e4, 1, "moon"],
                 pMult: 0.5,
                 effects: [
                     (level, star) => level * [0, 5, 7, 10, 14, 20][star] + 10,
@@ -950,7 +942,7 @@ const cards = {
             },
             "n1e0": {
                 faction: "moon",
-                levelCost: [1e4, 3, "sun"],
+                levelCost: [1e4, 1, "sun"],
                 pMult: 0.5,
                 effects: [
                     (level, star) => level * [0, 5, 7, 10, 14, 20][star] + 10,
@@ -1050,7 +1042,7 @@ const cards = {
     standard_legacy: {
         n: {
             "n0": {
-                levelCost: [50, 1.15, "exp"],
+                levelCost: [50, 1, "exp"],
                 effects: [
                     (level, star) => level ** (0.9 + 0.1 * star) * 2 ** star * 50,
                 ],
@@ -1059,7 +1051,7 @@ const cards = {
                 }
             },
             "n1": {
-                levelCost: [50, 1.2, "exp"],
+                levelCost: [50, 1, "exp"],
                 effects: [
                     (level, star) => level ** (0.7 + 0.1 * star) * 2 ** star * 40,
                 ],
@@ -1068,7 +1060,7 @@ const cards = {
                 }
             },
             "n2": {
-                levelCost: [50, 1.25, "exp"],
+                levelCost: [50, 1, "exp"],
                 pMult: 0.25,
                 effects: [
                     (level, star) => level ** (0.4 + 0.1 * star) * 2 ** star * 30,
@@ -1078,7 +1070,7 @@ const cards = {
                 }
             },
             "n2a": {
-                levelCost: [75, 1.5, "exp"],
+                levelCost: [75, 1, "exp"],
                 condition: () => hasCard("standard_legacy", "n", "n2"),
                 pMult: 0.25,
                 effects: [
@@ -1089,7 +1081,7 @@ const cards = {
                 }
             },
             "n2b": {
-                levelCost: [75, 1.5, "exp"],
+                levelCost: [75, 1, "exp"],
                 condition: () => hasCard("standard_legacy", "n", "n2"),
                 pMult: 0.25,
                 effects: [
@@ -1100,7 +1092,7 @@ const cards = {
                 }
             },
             "n2c": {
-                levelCost: [75, 1.5, "exp"],
+                levelCost: [75, 1, "exp"],
                 condition: () => hasCard("standard_legacy", "n", "n2"),
                 pMult: 0.25,
                 effects: [
@@ -1111,7 +1103,7 @@ const cards = {
                 }
             },
             "n2d": {
-                levelCost: [75, 1.5, "exp"],
+                levelCost: [75, 1, "exp"],
                 condition: () => hasCard("standard_legacy", "n", "n2"),
                 pMult: 0.25,
                 effects: [
@@ -1122,7 +1114,7 @@ const cards = {
                 }
             },
             "n2e": {
-                levelCost: [75, 1.5, "exp"],
+                levelCost: [75, 1, "exp"],
                 condition: () => hasCard("standard_legacy", "n", "n2"),
                 pMult: 0.25,
                 effects: [
@@ -1133,7 +1125,7 @@ const cards = {
                 }
             },
             "n3": {
-                levelCost: [50, 1.4, "exp"],
+                levelCost: [50, 1, "exp"],
                 effects: [
                     (level, star) => (level * 5 + 5) * [0, 1, 2, 3, 4, 5][star],
                 ],
@@ -1142,7 +1134,7 @@ const cards = {
                 }
             },
             "n4": {
-                levelCost: [50, 1.75, "exp"],
+                levelCost: [50, 1, "exp"],
                 effects: [
                     (level, star) => (level) * 2 ** star,
                     (level, star) => (level) * star,
